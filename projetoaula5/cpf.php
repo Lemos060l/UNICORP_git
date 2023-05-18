@@ -1,63 +1,32 @@
-<?php
+<html>
 
-include 'page2.php';
+<head>
 
-$cpf = $_POST["cpf"];
+<title>Aula 06 - Automatizando o Script CPF</title>
 
-$num1 = substr($cpf, 0, 1);
+</head>
 
-$num2 = substr($cpf, 1, 1);
+<body>
 
-$num3 = substr($cpf, 2, 1);
+<a href="home.php">VOLTAR</a>
 
-$num4 = substr($cpf, 4, 1);
+<form method="post" action="validar.php">
 
-$num5 = substr($cpf, 5, 1);
+CPF: <input type="text" placeholder="000.000.000-00" name="cpf" size=12 maxlength=14>
 
-$num6 = substr($cpf, 6, 1);
+<input type="submit" value="Validar">
 
-$num7 = substr($cpf, 8, 1);
+</form>
 
-$num8 = substr($cpf, 9, 1);
+<form method=”post” action=”gerar.php”>
 
-$num9 = substr($cpf, 10, 1);
+<input type=”submit” value=”Gerar”>
 
-$num10 = substr($cpf, 12, 1);
+</form>
 
-$num11 = substr($cpf, 13, 1);
+</body>
 
-$somadig1 = $num1*10 + $num2*9 + $num3*8 + $num4*7 + $num5*6 + $num6*5 + $num7*4 + $num8*3 + $num9*2;
+</html>
 
-echo "<br>$num1*10 + $num2*9 + $num3*8 + $num4*7 + $num5*6 + $num6*5 + $num7*4 + $num8*2 + $num9*2 = $somadig1<br>";
 
-$dig1 = ($somadig1*10)%11;
 
-echo "$dig1<br>";
-
-if ($dig1 == $num10) {
-
-$somadig2 = $num1*11 + $num2*10 + $num3*9 + $num4*8 + $num5*7 + $num6*6 + $num7*5 + $num8*4 + $num9*3 + $num10*2;
-
-echo "<br>$num1*11 + $num2*10 + $num3*9 + $num4*8 + $num5*7 + $num6*6 + $num7*5 + $num8*4 + $num9*3 + $num10*2 = $somadig2<br>";
-
-$dig2 = ($somadig2*10)%11;
-
-echo "$dig2<br>";
-
-if ($dig2 == $num11) {
-
-echo "<br>CPF $cpf Válido!";
-
-}else {
-
-echo "<br>CPF $cpf Inválido!";
-
-}
-
-}else {
-
-echo "<br>CPF $cpf Inválido!";
-
-}
-
-?>
